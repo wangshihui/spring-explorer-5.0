@@ -1,0 +1,15 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.wangsh.spring</groupId>
+  <artifactId>springExplorer</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>springExplorer</name>
+  <modules>
+  	<module>springExplorer-context-jar</module>
+  	<module>springExplorer-aop</module>
+  	<module>springExplorer-transaction</module>
+  	<module>springExplorer-database</module>
+  	<module>springExplorer-mvc</module>
+  </modules>
+</project>
