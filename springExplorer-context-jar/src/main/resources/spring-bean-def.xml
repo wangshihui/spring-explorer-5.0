@@ -1,11 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans
-        http://www.springframework.org/schema/beans/spring-beans.xsd">
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<bean id="MyXmlbean" class="com.wangsh.spring.beans.MyXmlbean">
+	<bean id="MyXmlbean"
+		class="com.wangsh.spring.beans.xmled.MyXmlbean">
 		<!-- collaborators and configuration for this bean go here -->
 	</bean>
+	<bean id="MyXmlbeanByFactory1"
+		class="com.wangsh.spring.beans.factoryedmethod.FactoryBean"
+		factory-method="getMyXmlbeanInstanceStatic">
+		<!-- collaborators and configuration for this bean go here -->
+	</bean>
+
+
+	<bean id="MyXmlbeanFactoryBean"
+		class="com.wangsh.spring.beans.factoryedmethod.FactoryBean"></bean>
+	<bean id="MyXmlbeanByFactory2" factory-bean="MyXmlbeanFactoryBean"
+		factory-method="getMyXmlbeanInstance"></bean>
+	<!-- collaborators and configuration for this bean go here -->
+
+
+	<!-- 扫描被 @component及其子类注解的类 从spring2.5开始支持 -->
+	<context:component-scan
+		base-package="com.wangsh.spring.beans.anotationed"></context:component-scan>
+	<!-- autowared inject等注解的支持 从spring2.5开始支持 -->
+	<!-- 经测试不进行明确声明也是可以支持的 -->
+	<!-- <context:annotation-config/> -->
+	<!-- autowire-candidate 属性定义bean不会被autowire注入到依赖exampleBean的对象 -->
+	<bean id="exampleBean"
+		class="com.wangsh.spring.beans.constructored.ExampleBean"
+		autowire-candidate="false">
+		<constructor-arg name="years" value="7500000" />
+		<constructor-arg name="ultimateAnswer" value="42" />
+	</bean>
+	<bean id="exampleBean2"
+		class="com.wangsh.spring.beans.constructored.ExampleBean">
+		<constructor-arg index="0" value="7500000" />
+		<constructor-arg index="1" value="42" />
+	</bean>
+
 
 </beans>

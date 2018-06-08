@@ -10,14 +10,22 @@
 	<artifactId>springExplorer-context-jar</artifactId>
 	<description>
 		创建一个spring容器+一个简单bean实例
+		https://docs.spring.io/spring/docs/5.0.6.RELEASE/spring-framework-reference/core.html#beans-standard-annotations
 		https://docs.spring.io/spring/docs/5.0.6.RELEASE/spring-framework-reference/
 		https://github.com/spring-projects/spring-framework/wiki/Spring-Framework-Artifacts
 	</description>
 	<dependencies>
+		<!--依赖 spring-aop spring-bean spring-core spring-extensions -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
 			<version>4.0.3.RELEASE</version>
+		</dependency>
+		<!-- 	jsr 330  @Inject -->
+		<dependency>
+			<groupId>javax.inject</groupId>
+			<artifactId>javax.inject</artifactId>
+			<version>1</version>
 		</dependency>
 	</dependencies>
 	<build>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="myCommand" class="com.wangsh.spring.beans.lookupmethod.AsyncCommand"
+		scope="prototype">
+		<!-- inject dependencies here as required -->
+	</bean>
+	<bean id="myCommand2" scope="prototype" class="com.wangsh.spring.beans.lookupmethod.AsyncCommand" factory-method="createCommand">
+		<!-- inject dependencies here as required -->
+	</bean>
+
+	<!-- commandProcessor uses statefulCommandHelper -->
+	<bean id="commandManager" class="com.wangsh.spring.beans.lookupmethod.CommandManager">
+		<lookup-method name="createCommand" bean="myCommand2" />
+<!-- 		<lookup-method name="createCommand" bean="myCommand" /> -->
+	</bean>
+</beans>
