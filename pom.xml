@@ -11,5 +11,6 @@
   	<module>springExplorer-transaction</module>
   	<module>springExplorer-database</module>
   	<module>springExplorer-mvc</module>
+  	<module>springExplorer-validation</module>
   </modules>
 </project>

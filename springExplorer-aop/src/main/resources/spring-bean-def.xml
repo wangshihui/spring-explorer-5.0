@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop 
+        http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+
+	<!-- 等同于注解方式@EnableAspectJAutoProxy -->
+	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+	<bean id="concurrentOperationExecutor" class="com.wangsh.spring.aop.beans.ConcurrentOperationExecutor">
+		<property name="maxRetries" value="3" />
+		<property name="order" value="100" />
+	</bean>
+<!-- ================================================================================================ -->
+	<bean id="systemArchitecture" class="com.wangsh.spring.aop.beans.SystemArchitecture" />
+	<!-- <aop:config> -->
+	<!-- <aop:aspect id="concurrentOperationExecutor" ref="concurrentOperationExecutor"> -->
+	<!-- <aop:pointcut id="businessService" expression="execution(* com.wangsh.spring.aop.beans.SystemArchitecture.*(..))" 
+		/> -->
+	<!-- <aop:around pointcut-ref="businessService" -->
+	<!-- method="doConcurrentOperation" /> -->
+	<!-- </aop:aspect> -->
+	<!-- </aop:config> -->
+<!-- ================================================================================================ -->
+	<!--等同于java配置@Configuration @EnableSpringConfigured -->
+	<context:spring-configured />
+	
+	<bean id="dobj" class="com.wangsh.spring.aop.beans.domainObject.DomaintObj">
+	</bean>
+</beans>
