@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING/DTD BEAN/EN"
+        "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+<!--    org.springframework.beans.factory.config.PropertyPlaceholderConfigurer-->
+<!--    org.springframework.context.support.PropertySourcesPlaceholderConfigurer-->
+    <bean id="configBean"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <!--
+        PlaceholderConfigurer  继承了BeanFactoryPostProcessor
+        如果存在多个PropertyPlaceholderConfigurer或者PropertySourcesPlaceholderConfigurer的情况
+        那么需要设置ignoreUnresolvablePlaceholders为true
+        否则任何一个PlaceholderConfigurer 都必须包含所有属性
+        -->
+        <property name="ignoreUnresolvablePlaceholders">
+            <value>true</value>
+        </property>
+<!--        <property name="location">-->
+<!--            <value>hello.properties</value>-->
+<!--        </property>-->
+    </bean>
+    <!--    <bean id="configBean2"-->
+    <!--          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">-->
+    <!--        <property name="location">-->
+    <!--            <value>hello2.properties</value>-->
+    <!--        </property>-->
+    <!--    </bean>-->
+    <bean id="configBean3"
+          class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
+        <property name="location">
+            <value>hello2.properties</value>
+        </property>
+    </bean>
+
+    <bean id="helloBean" class="com.wangsh.spring.property.PropertyBean">
+        <property name="helloWord">
+            <value>${onlyfun.caterpillar.helloWord}</value>
+        </property>
+    </bean>
+</beans>

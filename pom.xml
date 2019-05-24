@@ -1,16 +1,61 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.wangsh.spring</groupId>
-  <artifactId>springExplorer</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>pom</packaging>
-  <name>springExplorer</name>
-  <modules>
-  	<module>springExplorer-context-jar</module>
-  	<module>springExplorer-aop</module>
-  	<module>springExplorer-transaction</module>
-  	<module>springExplorer-database</module>
-  	<module>springExplorer-mvc</module>
-  	<module>springExplorer-validation</module>
-  </modules>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.5.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>com.wangsh.spring</groupId>
+    <artifactId>springExplorer</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>springExplorer</name>
+    <properties>
+        <spring.version>5.1.7.RELEASE</spring.version>
+    </properties>
+    <modules>
+        <module>springExplorer-context-jar</module>
+        <module>springExplorer-aop</module>
+        <module>springExplorer-transaction</module>
+        <module>springExplorer-database</module>
+        <module>springExplorer-mvc</module>
+        <module>springExplorer-validation</module>
+        <module>placeholder</module>
+        <module>springExplorer-mvc-server</module>
+    </modules>
+    <dependencies>
+        <!--依赖 spring-aop spring-bean spring-core spring-extensions -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-webflux</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.projectreactor</groupId>
+            <artifactId>reactor-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
 </project>

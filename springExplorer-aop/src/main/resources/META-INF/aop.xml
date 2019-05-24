@@ -1,10 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>  
 <!DOCTYPE aspectj PUBLIC "-//AspectJ//DTD//EN" "http://www.eclipse.org/aspectj/dtd/aspectj.dtd">  
 <aspectj>  
     <weaver>  
-       <include within="foo.*" />  
+        <include within="spring.beans.ltw.*" />  
+        <include within="foo.*"/>
     </weaver>  
     <aspects>  
-       <!-- weave in just this aspect -->  
-       <aspect name="foo.ProfilingAspect" />  
+        <aspect name="spring.beans.ltw.MethodAroundAspect" />
+        <aspect name="foo.ProfilingAspect" />
+        
     </aspects>  
-</aspectj>
+</aspectj>  

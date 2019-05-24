@@ -20,7 +20,13 @@ public class AppMain {
 		System.out.println("三个usageTracked的地址应该是一样的"); 
 		
 		DomaintObj dobj = new DomaintObj();
-		dobj.run();
+//		dobj.run();
+		try {
+			Thread.currentThread().sleep(2400000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 }

@@ -21,6 +21,6 @@ public class ProfilingAspect {
            System.out.println(sw.prettyPrint());  
        }  
     }  
-    @Pointcut("execution(public * foo..*.*(..))")  
+    @Pointcut("execution(public * foo..*(..))")  
     public void profileMethod() {}  
 }
