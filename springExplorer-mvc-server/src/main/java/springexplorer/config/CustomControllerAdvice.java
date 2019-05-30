@@ -37,6 +37,7 @@ public class CustomControllerAdvice {
 
         binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat,
                 false));
+
     }
 
     @InitBinder
