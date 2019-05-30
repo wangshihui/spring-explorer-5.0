@@ -1,7 +1,13 @@
 package springexplorer.config;
 
+import org.springframework.web.SpringServletContainerInitializer;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
+/**
+ * Servlet 3.0 支持的SPI 机制
+ * @see SpringServletContainerInitializer
+ * @see org.springframework.web.WebApplicationInitializer
+ */
 public class MyWebAppInitializer extends
         AbstractAnnotationConfigDispatcherServletInitializer {
     @Override

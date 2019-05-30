@@ -15,9 +15,13 @@ public class RequestProc {
         throw  new IOException("1");
 
     }
-
-    @RequestMapping("/test3")
+    @RequestMapping("/test2")
     public String test2() throws Exception{
+        throw  new Exception("2131231");
+
+    }
+    @RequestMapping("/test3")
+    public String test3() throws Exception{
         throw  new Exception(new IOException("3",new Exception("0")));
 
     }

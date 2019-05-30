@@ -19,6 +19,6 @@ public class RequestProc2 {
     }
     @ExceptionHandler(IOException.class)
     public ResponseEntity<String> handle(Exception ex, HttpServletRequest rq) {
-        return ResponseEntity.ok().body("600");
+        return ResponseEntity.ok().body("RequestProc2->exception handle->600");
     }
 }

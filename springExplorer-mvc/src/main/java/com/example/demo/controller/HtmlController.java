@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.Beans.User;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,12 +15,26 @@ import java.util.Date;
 @Controller
 public class HtmlController {
     @RequestMapping("/page0")
-        public String asyncProc2(Model model, @RequestParam("date") Date date){
+        public String page0(Model model, @RequestParam("date") Date date){
         model.addAttribute("test","test");
         System.out.println("complete2");
         System.out.println(date);
+        System.out.println(model.asMap().get("returnMethod"));
+        System.out.println(model.asMap().get("setAttr"));
         return "0.html";
     }
+
+    @RequestMapping("/page2")
+    public String page2(User user, Model model, @RequestParam("date") String date){
+        model.addAttribute("test","test");
+        System.out.println("complete2");
+        System.out.println(date);
+        System.out.println(model.asMap().get("returnMethod"));
+        System.out.println(model.asMap().get("setAttr"));
+        return "0.html";
+    }
+
+
 
     @RequestMapping("/async3")
     public void asyncProc3(){
